@@ -1,0 +1,90 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="logo-container">
+      </div>
+      <h2>Blanchisserie</h2>
+      <p>Connectez-vous à votre compte</p>
+    </div>
+    
+    <div class="login-form">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="p-fluid">
+          <div class="p-field">
+            <div class="input-wrapper">
+              <i class="pi pi-envelope input-icon"></i>
+              <input 
+                id="email" 
+                type="email" 
+                pInputText 
+                formControlName="email"
+                placeholder="Votre adresse email"
+                [class.ng-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+              />
+            </div>
+            <small class="p-error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+              <i class="pi pi-exclamation-triangle"></i> Email requis et doit être valide
+            </small>
+          </div>
+          
+          <div class="p-field">
+            <div class="input-wrapper">
+              <i class="pi pi-lock input-icon"></i>
+              <p-password 
+                id="password" 
+                formControlName="password"
+                name="password"
+                [feedback]="false"
+                placeholder="Votre mot de passe"
+                [class.ng-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                styleClass="p-password w-full"
+              ></p-password>
+            </div>
+            <small class="p-error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+              <i class="pi pi-exclamation-triangle"></i> Mot de passe requis
+            </small>
+          </div>
+          <div class="p-field">
+            <p-button 
+              label="Se connecter" 
+              type="submit" 
+              [disabled]="!loginForm.valid || loading"
+              [loading]="loading"
+              styleClass="w-full login-button"
+              icon="pi pi-sign-in"
+            ></p-button>
+          </div>
+        </div>
+      </form>
+      
+      <div class="demo-accounts">
+        <div class="demo-header">
+          <i class="pi pi-info-circle"></i>
+          <h4>Comptes de démonstration</h4>
+        </div>
+        <div class="demo-account">
+          <div class="demo-role admin">
+            <i class="pi pi-user-plus"></i>
+            <span>Admin</span>
+          </div>
+          <div class="demo-credentials">
+            <span>admin&#64;laundry.com</span>
+            <span>admin123</span>
+          </div>
+        </div>
+        <div class="demo-account">
+          <div class="demo-role user">
+            <i class="pi pi-user"></i>
+            <span>User</span>
+          </div>
+          <div class="demo-credentials">
+            <span>user&#64;laundry.com</span>
+            <span>user123</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <p-toast></p-toast>
+</div>

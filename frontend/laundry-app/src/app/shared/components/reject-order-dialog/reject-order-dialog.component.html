@@ -1,0 +1,49 @@
+<p-dialog 
+  [header]="dialogHeader"
+  [(visible)]="visible"
+  [style]="{width: '500px'}"
+  [modal]="true"
+  [closable]="true"
+  styleClass="reject-order-dialog"
+  (onHide)="onHide()"
+>
+  <div *ngIf="order" class="reject-dialog-content">
+    <div class="order-info">
+      <p><strong>Utilisateur:</strong> {{ order.name }}</p>
+      <p><strong>Date:</strong> {{ order.date | date: 'dd/MM/yyyy' }}</p>
+      <p><strong>Motif:</strong> {{ order.reason || '/' }}</p>
+    </div>
+    
+    <div class="comment-section">
+      <label for="rejectionComment" class="comment-label">
+        Commentaire de refus <span class="optional">(optionnel)</span>
+      </label>
+      <textarea 
+        id="rejectionComment"
+        pInputTextarea
+        [(ngModel)]="rejectionComment"
+        placeholder="Expliquez pourquoi cette commande est refusée..."
+        [rows]="4"
+        [autoResize]="true"
+        class="rejection-comment"
+      ></textarea>
+    </div>
+  </div>
+  
+  <ng-template pTemplate="footer">
+    <div class="dialog-actions">
+      <p-button 
+        label="Annuler" 
+        icon="pi pi-arrow-left" 
+        severity="secondary"
+        (click)="onCancel()"
+      ></p-button>
+      <p-button 
+        label="Confirmer le refus" 
+        icon="pi pi-trash" 
+        severity="danger"
+        (click)="onConfirm()"
+      ></p-button>
+    </div>
+  </ng-template>
+</p-dialog>

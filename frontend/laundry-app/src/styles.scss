@@ -1,0 +1,496 @@
+/* You can add global styles to this file, and also import other style files */
+@use './styles/customstyle.scss' as *;
+@import "primeicons/primeicons.css";
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.app-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  font-family: var(--p-font-family, 'Inter', sans-serif);
+  position: relative;
+  overflow: hidden;
+}
+
+
+.p-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.p-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.p-button:focus {
+  box-shadow: var(--focus-ring), 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.p-button:disabled {
+  background: var(--surface-300);
+  color: var(--surface-600);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.p-button.p-button-secondary {
+  background: var(--surface-500);
+  border-color: var(--surface-500);
+}
+
+.p-button.p-button-secondary:hover {
+  background: var(--surface-600);
+  border-color: var(--surface-600);
+}
+
+.p-button.p-button-success {
+  background: #28a745;
+  border-color: #28a745;
+}
+
+.p-button.p-button-success:hover {
+  background: #218838;
+  border-color: #1e7e34;
+}
+
+.p-button.p-button-danger {
+  background: #dc3545;
+  border-color: #dc3545;
+}
+
+.p-button.p-button-danger:hover {
+  background: #c82333;
+  border-color: #bd2130;
+}
+
+.p-button.p-button-info {
+  background: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.p-button.p-button-info:hover {
+  background: #138496;
+  border-color: #117a8b;
+}
+
+.p-button.p-button-text {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid transparent;
+  padding: 0.5rem 1rem;
+  box-shadow: none;
+}
+
+.p-button.p-button-text:hover {
+  background: var(--surface-100);
+  border-color: var(--surface-200);
+  transform: none;
+}
+
+.p-button.w-full {
+  width: 100%;
+}
+
+.p-button .p-button-icon {
+  font-size: 1.1rem;
+}
+
+.p-button .p-button-label {
+  font-weight: 500;
+}
+
+/* PrimeNG Input Styles */
+.p-inputtext {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color, #dee2e6);
+  border-radius: var(--border-radius, 6px);
+  background: var(--surface-0, #ffffff);
+  color: var(--text-color, #495057);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  outline: none;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.p-inputtext::placeholder {
+  color: var(--p-form-field-placeholder-color);
+  opacity: 0.7;
+}
+
+
+.p-inputtext:focus {
+  border-color: var(--primary-color);
+  box-shadow: var(--focus-ring), 0 2px 8px rgba(0, 123, 255, 0.1);
+}
+
+.p-inputtext:hover {
+  border-color: var(--surface-400);
+}
+
+.p-inputtext.ng-invalid.ng-touched {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+.p-floatlabel {
+  color: var(--text-color-secondary, #6c757d);
+}
+
+textarea.p-inputtext {
+  resize: vertical;
+  min-height: 3rem;
+}
+
+/* PrimeNG Card Styles */
+.p-card {
+  background: var(--surface-0);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.p-card .p-card-header {
+  padding: 1.5rem;
+  background: var(--surface-50);
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--text-color);
+}
+
+.p-card .p-card-content {
+  padding: 1.5rem;
+}
+
+/* PrimeNG Table Styles */
+.p-datatable {
+  background: var(--surface-0);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.p-datatable .p-datatable-header {
+  background: var(--surface-50);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem;
+  font-weight: 600;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  background: var(--primary-color);
+  color: var(--primary-color-text);
+  border: none;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  padding: 1.25rem 1rem;
+  vertical-align: middle;
+}
+
+.p-datatable .p-datatable-tbody > tr:hover {
+  background: var(--surface-50);
+}
+
+.p-datatable .p-datatable-tbody > tr:nth-child(even) {
+  background: var(--surface-50);
+}
+
+.p-datatable .p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
+  background: var(--surface-50);
+}
+
+/* PrimeNG Tag Styles */
+.p-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.p-tag.p-tag-success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.p-tag.p-tag-info {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.p-tag.p-tag-warning {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.p-tag.p-tag-danger {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* PrimeNG Dialog Styles */
+.p-dialog {
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.p-dialog .p-dialog-header {
+  padding: 1.5rem;
+  background: var(--surface-50);
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.p-dialog .p-dialog-content {
+  padding: 1.5rem;
+}
+
+/* PrimeNG Calendar Styles */
+.p-calendar {
+  width: 100%;
+}
+
+.p-calendar .p-inputtext {
+  width: 100%;
+}
+
+/* PrimeNG Password Styles */
+.p-password {
+  width: 100%;
+  position: relative;
+}
+
+.p-password .p-inputtext {
+  width: 100%;
+  padding-right: 3rem;
+}
+
+.p-password .p-password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--text-color-secondary);
+  transition: color 0.2s;
+}
+
+.p-password .p-password-toggle:hover {
+  color: var(--primary-color);
+}
+
+/* PrimeNG Calendar Styles */
+.p-calendar {
+  width: 100%;
+  position: relative;
+}
+
+.p-calendar .p-inputtext {
+  width: 100%;
+  padding-right: 3rem;
+}
+
+.p-calendar .p-datepicker-trigger {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--text-color-secondary);
+  transition: color 0.2s;
+}
+
+.p-calendar .p-datepicker-trigger:hover {
+  color: var(--primary-color);
+}
+
+/* PrimeNG InputNumber Styles */
+.p-inputnumber {
+  width: 100%;
+  position: relative;
+}
+
+.p-inputnumber .p-inputtext {
+  width: 100%;
+  text-align: right;
+}
+
+.p-inputnumber .p-inputnumber-button-group {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.p-inputnumber .p-inputnumber-button {
+  background: var(--surface-100);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: all 0.2s;
+}
+
+.p-inputnumber .p-inputnumber-button:hover {
+  background: var(--surface-200);
+  color: var(--primary-color);
+}
+
+/* PrimeNG Toast Styles */
+.p-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.p-toast .p-toast-message {
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.p-toast .p-toast-message.p-toast-message-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.p-toast .p-toast-message.p-toast-message-error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f1b2b8;
+}
+
+.p-toast .p-toast-message.p-toast-message-info {
+  background: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee2e8;
+}
+
+.p-toast .p-toast-message.p-toast-message-warning {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.p-toast .p-toast-message-content {
+  padding: 1rem;
+}
+
+/* PrimeNG Confirm Dialog Styles */
+.p-confirm-dialog {
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.p-confirm-dialog .p-dialog-header {
+  padding: 1.5rem;
+  background: var(--surface-50);
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 600;
+}
+
+.p-confirm-dialog .p-dialog-content {
+  padding: 1.5rem;
+}
+
+.p-confirm-dialog .p-dialog-footer {
+  padding: 1rem 1.5rem;
+  background: var(--surface-50);
+  border-top: 1px solid var(--border-color);
+  text-align: right;
+}
+
+/* PrimeNG Paginator Styles */
+.p-paginator {
+  background: var(--surface-0);
+  border-top: 1px solid var(--border-color);
+  padding: 1rem;
+}
+
+.p-paginator .p-paginator-page {
+  padding: 0.5rem 0.75rem;
+  margin: 0 0.25rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  background: var(--surface-0);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.p-paginator .p-paginator-page:hover {
+  background: var(--surface-100);
+}
+
+.p-paginator .p-paginator-page.p-paginator-page-selected {
+  background: var(--primary-color);
+  color: var(--primary-color-text);
+  border-color: var(--primary-color);
+}
+
+/* Custom Utility Classes */
+.p-error {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.p-fluid .p-field {
+  margin-bottom: 1rem;
+}
+
+.p-fluid .p-field > label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.p-field {
+  margin-bottom: 1rem;
+}
+
+.p-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}

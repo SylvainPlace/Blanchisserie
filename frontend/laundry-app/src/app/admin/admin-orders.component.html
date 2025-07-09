@@ -1,0 +1,63 @@
+<div class="admin-container">
+  <app-shared-header [title]="'Administration - Gestion des Commandes'">
+    <div header-buttons>
+      <p-button 
+        label="Voir mes commandes" 
+        icon="pi pi-users" 
+        styleClass="client-orders-btn"
+        (click)="navigateToClientOrders()"
+      ></p-button>
+    </div>
+  </app-shared-header>
+
+  <p-card>
+    <p-tabView>
+      <!-- Onglet des commandes actuelles -->
+      <p-tabPanel header="Commandes actuelles">
+        <app-orders-table
+          [orders]="orders"
+          [loading]="loading"
+          [showClientColumn]="true"
+          [showAdminActions]="true"
+          emptyMessage="Aucune commande actuelle trouvée"
+          emptyDescription="Aucune commande en attente de traitement"
+          (viewOrder)="viewOrder($event)"
+          (approveOrder)="approveOrder($event)"
+          (rejectOrder)="rejectOrder($event)"
+        ></app-orders-table>
+      </p-tabPanel>
+
+      <!-- Onglet des commandes passées -->
+      <p-tabPanel header="Historique">
+        <app-orders-table
+          [orders]="pastOrders"
+          [loading]="loading"
+          [showClientColumn]="true"
+          emptyMessage="Aucune commande passée trouvée"
+          emptyDescription="Aucune commande traitée dans l'historique"
+          (viewOrder)="viewOrder($event)"
+        ></app-orders-table>
+      </p-tabPanel>
+    </p-tabView>
+  </p-card>
+
+  <!-- Dialog pour les détails de la commande -->
+  <app-order-details-dialog
+    [(visible)]="displayDialog"
+    [order]="selectedOrder"
+    [showUserName]="true"
+    [showAdminActions]="true"
+    (approveOrder)="approveOrder($event)"
+    (rejectOrder)="rejectOrder($event)"
+  ></app-order-details-dialog>
+
+  <!-- Dialog pour le refus avec commentaire -->
+  <app-reject-order-dialog
+    [(visible)]="displayRejectDialog"
+    [order]="orderToReject"
+    (confirmReject)="confirmRejectOrder($event)"
+  ></app-reject-order-dialog>
+  
+  <p-toast></p-toast>
+  <p-confirmDialog></p-confirmDialog>
+</div>

@@ -1,0 +1,18 @@
+# .gitignore for .NET test project
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vscode/
+TestResults/
+*.db
+*.sqlite
+*.mdf
+*.ldf
+*.log
+
+# OS generated files
+Thumbs.db
+.DS_Store

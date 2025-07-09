@@ -1,0 +1,72 @@
+<p-dialog 
+  [header]="dialogHeader"
+  [(visible)]="visible"
+  [style]="{width: '60vw', 'min-width': '400px'}"
+  [modal]="true"
+  [closable]="true"
+  styleClass="order-details-dialog"
+  (onHide)="onHide()"
+>
+  <div *ngIf="order" class="order-details">
+    <div class="detail-section">
+      <h3>Informations générales</h3>
+      <div class="detail-row">
+        <span class="label">Date :</span>
+        <span class="value">{{ order.date | date: 'dd/MM/yyyy' }}</span>
+      </div>
+      <div class="detail-row" *ngIf="showUserName">
+        <span class="label">Utilisateur :</span>
+        <span class="value">{{ order.name }}</span>
+      </div>
+      <div class="detail-row">
+        <span class="label">Statut :</span>
+        <p-tag 
+          [value]="getStatusLabel(order.status)" 
+          [severity]="getStatusSeverity(order.status)"
+        ></p-tag>
+      </div>
+      <div class="detail-row">
+        <span class="label">Motif :</span>
+        <span class="value">{{ order.reason ? order.reason : '/' }}</span>
+      </div>
+      <div class="detail-row">
+        <span class="label">Commentaire:</span>
+        <span class="value">{{ order.comment ? order.comment : '/' }}</span>
+      </div>
+      <div class="detail-row" *ngIf="order.status === 'Rejected'">
+        <span class="label">Motif de refus :</span>
+        <span class="value admin-comment">{{ order.adminComment ? order.adminComment : '/' }}</span>
+      </div>
+    </div>
+    
+    <div class="detail-section">
+      <h3>Articles commandés</h3>
+      <div class="articles-table">
+        <div class="article-header">
+          <span>Article</span>
+          <span>Quantité</span>
+        </div>
+        <div *ngFor="let article of order.articles" class="article-row">
+          <span>{{ article.name }}</span>
+          <span>{{ article.quantity }}</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="action-section" *ngIf="showAdminActions && order.status === 'Pending'">
+      <p-button 
+        label="Approuver" 
+        icon="pi pi-check" 
+        severity="success" 
+        (click)="onApprove()"
+        [style]="{'margin-right': '1rem'}"
+      ></p-button>
+      <p-button 
+        label="Refuser"
+        icon="pi pi-times" 
+        severity="danger" 
+        (click)="onReject()"
+      ></p-button>
+    </div>
+  </div>
+</p-dialog>

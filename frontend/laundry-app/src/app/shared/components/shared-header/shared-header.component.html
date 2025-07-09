@@ -1,0 +1,19 @@
+<div class="header">
+  
+  <h2>{{ title }}</h2>
+  <div class="header-buttons">
+    <ng-content select="[header-buttons]"></ng-content>
+  </div>
+  <div class="header-logout">
+    <div class="header-user">
+    Bonjour, {{ userFullName }}
+  </div>
+    <p-button 
+      label="Déconnexion" 
+      icon="pi pi-sign-out" 
+      severity="secondary" 
+      (click)="handleLogout()"
+      styleClass="logout-btn"
+    ></p-button>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+.reject-dialog-content {
+  .order-info {
+    background: var(--surface-50);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--orange-500);
+    
+    p {
+      margin: 0.5rem 0;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  .comment-section {
+    .comment-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+      
+      .optional {
+        font-weight: 400;
+        color: var(--text-color-secondary);
+        font-size: 0.875rem;
+      }
+    }
+    
+    .rejection-comment {
+      width: 100%;
+      min-height: 100px;
+      resize: vertical;
+    }
+  }
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+:host ::ng-deep .reject-order-dialog {
+  .p-dialog-header {
+    background: var(--red-50);
+    color: var(--red-900);
+    border-bottom: 1px solid var(--red-200);
+  }
+  
+  .p-dialog-content {
+    padding: 1.5rem;
+  }
+  
+  .p-dialog-footer {
+    padding: 1rem 1.5rem;
+    background: var(--surface-50);
+    border-top: 1px solid var(--border-color);
+  }
+}

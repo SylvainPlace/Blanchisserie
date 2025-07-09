@@ -1,0 +1,108 @@
+<div class="create-order-container">
+  <p-card header="Nouvelle Commande">
+    <ng-template #title class="absolute">
+      <div class="relative">
+        <div class="return-btn">
+          <p-button
+            label="Retour aux commandes"
+            icon="pi pi-arrow-circle-left"
+            [routerLink]="['/orders']"
+          ></p-button>
+        </div>
+      </div>
+      Nouvelle Commande
+    </ng-template>
+
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+      <div class="p-fluid">
+        <div class="p-field">
+          <label>Articles *</label>
+          <div formArrayName="articles">
+            <div
+              *ngFor="let article of articles.controls; let i = index"
+              [formGroupName]="i"
+              class="article-row"
+            >
+              <div class="article-header" *ngIf="articles.length > 1">
+                <p-button
+                  severity="danger"
+                  (click)="removeArticle(i)"
+                  class="remove-article-btn remove-article-btn-right"
+                >
+                  <i class="pi pi-trash"></i>
+                </p-button>
+              </div>
+              <div class="p-grid">
+                <div class="p-col-12">
+                  <input
+                    type="text"
+                    pInputText
+                    placeholder="Nom de l'article"
+                    formControlName="name"
+                  />
+                </div>
+                <div class="p-col-12">
+                  <p-floatlabel variant="on">
+                    <p-inputNumber
+                      formControlName="quantity"
+                      [min]="1"
+                      placeholder="Quantité"
+                    ></p-inputNumber>
+                    <label for="in_label">Quantité</label>
+                  </p-floatlabel>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p-button
+            label="Ajouter un article"
+            icon="pi pi-plus-circle"
+            severity="secondary"
+            (click)="addArticle()"
+          ></p-button>
+        </div>
+
+        <div class="p-field">
+          <label for="date">Date *</label>
+          <p-calendar
+            id="date"
+            formControlName="date"
+            dateFormat="dd/mm/yy"
+            [showIcon]="true"
+            placeholder="Sélectionner une date"
+            [required]="true"
+            [minDate]="today"
+          ></p-calendar>
+        </div>
+
+        <div class="p-field">
+          <label for="reason">Motif</label>
+          <input id="reason" type="text" pInputText formControlName="reason" />
+        </div>
+
+        <div class="p-field">
+          <label for="comment">Commentaire</label>
+          <textarea
+            id="comment"
+            pInputText
+            formControlName="comment"
+            rows="3"
+          ></textarea>
+        </div>
+
+        <div class="p-field">
+          <p-button
+            label="Créer la commande"
+            icon="pi pi-save"
+            type="submit"
+            [disabled]="!orderForm.valid || loading"
+            [loading]="loading"
+            styleClass="w-full"
+          ></p-button>
+        </div>
+      </div>
+    </form>
+  </p-card>
+
+  <p-toast></p-toast>
+</div>

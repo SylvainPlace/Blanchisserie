@@ -1,0 +1,146 @@
+/**
+ * CustomStyle - Variables CSS complémentaires
+ * Thème personnalisé pour BlanchisseriePro
+ */
+:root {
+  /* === Couleurs principales === */
+  --hospital-primary: #163369;
+  --hospital-primary-light: #2d5489;
+  --hospital-primary-dark: #0f2548;
+  --hospital-accent: #ee8c21;
+  --hospital-accent-light: #ffa54f;
+  --hospital-accent-dark: #d17a1a;
+
+  /* === Variables de surface === */
+  --hospital-surface-ground: #ffffff;
+  --hospital-surface-section: #f8f9fa;
+  --hospital-surface-card: #ffffff;
+  --hospital-surface-overlay: #ffffff;
+  --hospital-surface-border: #dee2e6;
+  --hospital-surface-hover: #e9ecef;
+
+  /* === Variables de texte === */
+  --hospital-text-color: #495057;
+  --hospital-text-color-secondary: #6c757d;
+  --hospital-primary-color-text: #ffffff;
+  --hospital-surface-0: #ffffff;
+  --hospital-surface-50: #f8f9fa;
+  --hospital-surface-100: #e9ecef;
+  --hospital-surface-200: #dee2e6;
+  --hospital-surface-300: #ced4da;
+  --hospital-surface-400: #adb5bd;
+  --hospital-surface-500: #6c757d;
+  --hospital-surface-600: #495057;
+  --hospital-surface-700: #343a40;
+  --hospital-surface-800: #212529;
+  --hospital-surface-900: #163369;
+
+  /* === États des composants === */
+  --hospital-focus-ring: rgba(22, 51, 105, 0.2);
+  --hospital-mask-bg: rgba(0, 0, 0, 0.4);
+  
+  /* === Messages === */
+  --hospital-success-color: #22c55e;
+  --hospital-success-bg: #dcfce7;
+  --hospital-success-border: #16a34a;
+  
+  --hospital-info-color: #163369;
+  --hospital-info-bg: #f0f4f8;
+  --hospital-info-border: #163369;
+  
+  --hospital-warn-color: #eab308;
+  --hospital-warn-bg: #fefce8;
+  --hospital-warn-border: #ca8a04;
+  
+  --hospital-error-color: #ef4444;
+  --hospital-error-bg: #fef2f2;
+  --hospital-error-border: #dc2626;
+
+  /* === Transitions === */
+  --hospital-transition-duration: 150ms;
+  --hospital-border-radius: 6px;
+  --hospital-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* === Ombres === */
+  --hospital-shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --hospital-shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --hospital-shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --hospital-shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  --font-family: 'Inter', sans-serif;
+}
+
+/* === Classes utilitaires === */
+.hospital-primary {
+  color: var(--hospital-primary) !important;
+}
+
+.hospital-accent {
+  color: var(--hospital-accent) !important;
+}
+
+.hospital-bg-primary {
+  background-color: var(--hospital-primary) !important;
+  color: var(--hospital-primary-color-text) !important;
+}
+
+.hospital-bg-accent {
+  background-color: var(--hospital-accent) !important;
+  color: var(--hospital-primary-color-text) !important;
+}
+
+.hospital-border-primary {
+  border-color: var(--hospital-primary) !important;
+}
+
+.hospital-border-accent {
+  border-color: var(--hospital-accent) !important;
+}
+
+/* === Surcharge PrimeNG spécifique === */
+.p-button.p-button-primary {
+  background-color: var(--hospital-accent);
+  border-color: var(--hospital-accent);
+}
+
+.p-button.p-button-primary:hover {
+  background-color: var(--hospital-accent-dark);
+  border-color: var(--hospital-accent-dark);
+}
+
+.p-button.p-button-secondary {
+  background-color: var(--hospital-surface-0);
+  border-color: var(--hospital-accent);
+  color: var(--hospital-accent);
+}
+
+.p-button.p-button-secondary:hover {
+  background-color: var(--hospital-accent);
+  border-color: var(--hospital-accent);
+  color: var(--hospital-surface-0);
+}
+
+.p-button.p-button-info {
+  background-color: var(--hospital-primary);
+  border-color: var(--hospital-primary);
+}
+
+.p-button.p-button-info:hover {
+  background-color: var(--hospital-primary-light);
+  border-color: var(--hospital-primary-light);
+}
+
+.p-inputtext:focus {
+  border-color: var(--hospital-primary);
+  box-shadow: 0 0 0 2px var(--hospital-focus-ring);
+}
+
+.p-dropdown:focus {
+  border-color: var(--hospital-primary);
+  box-shadow: 0 0 0 2px var(--hospital-focus-ring);
+}
+
+.p-inputnumber:focus-within {
+  border-color: var(--hospital-primary);
+  box-shadow: 0 0 0 2px var(--hospital-focus-ring);
+}
