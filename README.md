@@ -15,7 +15,7 @@ Développer une application permettant aux utilisateurs de passer des commandes 
   - PrimeIcons : 7.0.0
 - **Backend** :
   - .NET : net9.0
-  - EntityFrameworkCore.InMemory : 9.0.6
+  - EntityFrameworkCore.InMemory : 9.0.6 (la base de données est actuellement en mémoire, mais une vraie base de données peut être mise en place si besoin)
   - BCrypt.Net-Next : 4.0.3
   - Microsoft.AspNetCore.Authentication.JwtBearer : 9.0.6
   - Microsoft.AspNetCore.OpenApi : 9.0.6
