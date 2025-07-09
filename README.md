@@ -100,6 +100,16 @@ L'application se compose de 4 écrans principaux :
    ng serve
    ```
 
+## Lancement rapide avec le script batch
+
+Vous pouvez lancer à la fois le backend et le frontend automatiquement en exécutant le script batch fourni à la racine du projet :
+
+```bat
+start-app.bat
+```
+
+Ce script ouvrira deux fenêtres de terminal : une pour l’API backend et une pour le frontend Angular. Après quelques secondes, l’application s’ouvrira automatiquement dans votre navigateur à l’adresse <http://localhost:4200>.
+
 ---
 
 **Auteur :** Sylvain Place
